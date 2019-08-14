@@ -35,6 +35,13 @@ builds:
   env: *env
   goos: *goos
   goarch: *goarch
+- id: controllerv2
+  binary: controllerv2
+  main: pkg/controllerv2/main.go
+  ldflags: *ldflags
+  env: *env
+  goos: *goos
+  goarch: *goarch
 dockers:
 - binaries:
   - controller
