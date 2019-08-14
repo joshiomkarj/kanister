@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+set -x
 set -o errexit
 set -o nounset
 
@@ -31,3 +32,8 @@ go install -v                                                      \
     -installsuffix "static"                                        \
     -ldflags "-X ${PKG}/pkg/version.VERSION=${VERSION}"            \
     ./cmd/...
+
+go install -v                                                      \
+    -installsuffix "static"                                        \
+    -ldflags "-X ${PKG}/pkg/version.VERSION=${VERSION}"            \
+    ./pkg/controllerv2/...
