@@ -1,0 +1,7 @@
+apiVersion: cr.kanister.io/v1alpha1
+kind: Blueprint
+metadata:
+  name: example-blueprint
+spec:
+  # Add fields here
+  size: 3
