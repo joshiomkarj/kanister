@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha1 "github.com/kanisterio/kanister/pkg/apis/cr/v1alpha1"
+	v1alpha1 "github.com/kanisterio/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -34,9 +34,9 @@ type FakeBlueprints struct {
 	ns   string
 }
 
-var blueprintsResource = schema.GroupVersionResource{Group: "cr", Version: "v1alpha1", Resource: "blueprints"}
+var blueprintsResource = schema.GroupVersionResource{Group: "cr.kanister.io", Version: "v1alpha1", Resource: "blueprints"}
 
-var blueprintsKind = schema.GroupVersionKind{Group: "cr", Version: "v1alpha1", Kind: "Blueprint"}
+var blueprintsKind = schema.GroupVersionKind{Group: "cr.kanister.io", Version: "v1alpha1", Kind: "Blueprint"}
 
 // Get takes name of the blueprint, and returns the corresponding blueprint object, and an error if there is any.
 func (c *FakeBlueprints) Get(name string, options v1.GetOptions) (result *v1alpha1.Blueprint, err error) {

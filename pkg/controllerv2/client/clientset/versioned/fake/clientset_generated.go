@@ -19,9 +19,9 @@ limitations under the License.
 package fake
 
 import (
-	clientset "github.com/kanisterio/kanister/pkg/client/clientset/versioned"
-	crv1alpha1 "github.com/kanisterio/kanister/pkg/client/clientset/versioned/typed/cr/v1alpha1"
-	fakecrv1alpha1 "github.com/kanisterio/kanister/pkg/client/clientset/versioned/typed/cr/v1alpha1/fake"
+	clientset "github.com/kanisterio/kanister/pkg/controllerv2/client/clientset/versioned"
+	crv1alpha1 "github.com/kanisterio/kanister/pkg/controllerv2/client/clientset/versioned/typed/cr/v1alpha1"
+	fakecrv1alpha1 "github.com/kanisterio/kanister/pkg/controllerv2/client/clientset/versioned/typed/cr/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

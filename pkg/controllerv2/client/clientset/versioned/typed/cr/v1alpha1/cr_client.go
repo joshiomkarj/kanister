@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
-	v1alpha1 "github.com/kanisterio/kanister/pkg/apis/cr/v1alpha1"
-	"github.com/kanisterio/kanister/pkg/client/clientset/versioned/scheme"
+	"github.com/kanisterio/kanister/pkg/controllerv2/client/clientset/versioned/scheme"
+	v1alpha1 "github.com/kanisterio/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1"
 	rest "k8s.io/client-go/rest"
 )
 
@@ -31,7 +31,7 @@ type CrV1alpha1Interface interface {
 	ProfilesGetter
 }
 
-// CrV1alpha1Client is used to interact with features provided by the cr group.
+// CrV1alpha1Client is used to interact with features provided by the cr.kanister.io group.
 type CrV1alpha1Client struct {
 	restClient rest.Interface
 }

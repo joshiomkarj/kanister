@@ -28,3 +28,10 @@ chmod +x "${execDir}"/generate-groups.sh
   github.com/kanisterio/kanister/pkg/apis    \
   "cr:v1alpha1"                              \
   --go-header-file "${execDir}"/hack/boilerplate.go.txt
+
+"${execDir}"/generate-groups.sh                         \
+  all                                        \
+  github.com/kanisterio/kanister/pkg/controllerv2/client  \
+  github.com/kanisterio/kanister/pkg/controllerv2/pkg/apis    \
+  "cr:v1alpha1"                              \
+  --go-header-file "${execDir}"/hack/boilerplate.go.txt
