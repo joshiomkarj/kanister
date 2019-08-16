@@ -56,6 +56,7 @@ rules:
   - cr.kanister.io
   resources:
   - '*'
+  - profiles
   - blueprints
   verbs:
   - '*'

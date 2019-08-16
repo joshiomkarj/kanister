@@ -11,12 +11,15 @@ import (
 
 func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
 	return map[string]common.OpenAPIDefinition{
-		"./pkg/apis/cr/v1alpha1.ActionSet":       schema_pkg_apis_cr_v1alpha1_ActionSet(ref),
-		"./pkg/apis/cr/v1alpha1.ActionSetSpec":   schema_pkg_apis_cr_v1alpha1_ActionSetSpec(ref),
-		"./pkg/apis/cr/v1alpha1.ActionSetStatus": schema_pkg_apis_cr_v1alpha1_ActionSetStatus(ref),
-		"./pkg/apis/cr/v1alpha1.Blueprint":       schema_pkg_apis_cr_v1alpha1_Blueprint(ref),
-		"./pkg/apis/cr/v1alpha1.BlueprintSpec":   schema_pkg_apis_cr_v1alpha1_BlueprintSpec(ref),
-		"./pkg/apis/cr/v1alpha1.BlueprintStatus": schema_pkg_apis_cr_v1alpha1_BlueprintStatus(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSet":       schema_pkg_apis_cr_v1alpha1_ActionSet(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSetSpec":   schema_pkg_apis_cr_v1alpha1_ActionSetSpec(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSetStatus": schema_pkg_apis_cr_v1alpha1_ActionSetStatus(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.Blueprint":       schema_pkg_apis_cr_v1alpha1_Blueprint(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.BlueprintSpec":   schema_pkg_apis_cr_v1alpha1_BlueprintSpec(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.BlueprintStatus": schema_pkg_apis_cr_v1alpha1_BlueprintStatus(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.Profile":         schema_pkg_apis_cr_v1alpha1_Profile(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ProfileSpec":     schema_pkg_apis_cr_v1alpha1_ProfileSpec(ref),
+		"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ProfileStatus":   schema_pkg_apis_cr_v1alpha1_ProfileStatus(ref),
 	}
 }
 
@@ -47,19 +50,19 @@ func schema_pkg_apis_cr_v1alpha1_ActionSet(ref common.ReferenceCallback) common.
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("./pkg/apis/cr/v1alpha1.ActionSetSpec"),
+							Ref: ref("github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSetSpec"),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("./pkg/apis/cr/v1alpha1.ActionSetStatus"),
+							Ref: ref("github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSetStatus"),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"./pkg/apis/cr/v1alpha1.ActionSetSpec", "./pkg/apis/cr/v1alpha1.ActionSetStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
+			"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSetSpec", "github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ActionSetStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
 	}
 }
 
@@ -114,19 +117,19 @@ func schema_pkg_apis_cr_v1alpha1_Blueprint(ref common.ReferenceCallback) common.
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("./pkg/apis/cr/v1alpha1.BlueprintSpec"),
+							Ref: ref("github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.BlueprintSpec"),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("./pkg/apis/cr/v1alpha1.BlueprintStatus"),
+							Ref: ref("github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.BlueprintStatus"),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"./pkg/apis/cr/v1alpha1.BlueprintSpec", "./pkg/apis/cr/v1alpha1.BlueprintStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
+			"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.BlueprintSpec", "github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.BlueprintStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
 	}
 }
 
@@ -147,6 +150,73 @@ func schema_pkg_apis_cr_v1alpha1_BlueprintStatus(ref common.ReferenceCallback) c
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
 				Description: "BlueprintStatus defines the observed state of Blueprint",
+				Properties:  map[string]spec.Schema{},
+			},
+		},
+		Dependencies: []string{},
+	}
+}
+
+func schema_pkg_apis_cr_v1alpha1_Profile(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Profile is the Schema for the profiles API",
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Ref: ref("k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"),
+						},
+					},
+					"spec": {
+						SchemaProps: spec.SchemaProps{
+							Ref: ref("github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ProfileSpec"),
+						},
+					},
+					"status": {
+						SchemaProps: spec.SchemaProps{
+							Ref: ref("github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ProfileStatus"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ProfileSpec", "github.com/joshiomkarj/kanister/pkg/controllerv2/pkg/apis/cr/v1alpha1.ProfileStatus", "k8s.io/apimachinery/pkg/apis/meta/v1.ObjectMeta"},
+	}
+}
+
+func schema_pkg_apis_cr_v1alpha1_ProfileSpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ProfileSpec defines the desired state of Profile",
+				Properties:  map[string]spec.Schema{},
+			},
+		},
+		Dependencies: []string{},
+	}
+}
+
+func schema_pkg_apis_cr_v1alpha1_ProfileStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ProfileStatus defines the observed state of Profile",
 				Properties:  map[string]spec.Schema{},
 			},
 		},

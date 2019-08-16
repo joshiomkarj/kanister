@@ -3,18 +3,7 @@ package v1alpha1
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
-	"k8s.io/apimachinery/pkg/runtime/schema"
 )
-
-const (
-	// SchemeVersion is the API version of objects in this package.
-	SchemeVersion = "v1alpha1"
-	// ResourceGroup is the API group of resources in this package.
-	ResourceGroup = "cr.kanister.io"
-)
-
-// SchemeGroupVersion is group version used to register these objects
-var SchemeGroupVersion = schema.GroupVersion{Group: ResourceGroup, Version: SchemeVersion}
 
 // These names are used to query ActionSet API objects.
 const (
@@ -134,10 +123,10 @@ const (
 type Phase struct {
 	Name   string                    `json:"name"`
 	State  State                     `json:"state"`
-	Output map[string]PhaseInterface `json:"output"`
+	Output map[string]string `json:"output"`
 }
 
-type PhaseInterface interface{}
+//type PhaseInterface interface{}
 
 // k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 

@@ -64,10 +64,10 @@ type BlueprintPhase struct {
 	Func       string                     `json:"func"`
 	Name       string                     `json:"name"`
 	ObjectRefs map[string]ObjectReference `json:"objects"`
-	Args       map[string]ArgsInterface     `json:"args"`
+	Args       map[string]string     `json:"args"`
 }
 
-type ArgsInterface interface{}
+//type ArgsInterface interface{}
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
